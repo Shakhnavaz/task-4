@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 from flask import Flask, request, jsonify, make_response
 
 app = Flask(__name__)
@@ -12,6 +13,15 @@ def add_cors_headers(response):
     )
     response.headers['Content-Type'] = 'application/json'
     return response
+
+# task 5
+app = Flask(__name__)
+
+@app.route('/login/', methods=['GET'])
+def get_hour():
+    return datetime.now().strftime("%H")
+
+
 
 
 @app.route('/result4/', methods=['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'])
