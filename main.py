@@ -1,5 +1,7 @@
 import os
 from datetime import datetime
+from zoneinfo import ZoneInfo
+
 from flask import Flask, request, jsonify, make_response
 
 app = Flask(__name__)
@@ -19,7 +21,7 @@ app = Flask(__name__)
 
 @app.route('/login/', methods=['GET'])
 def get_hour():
-    return datetime.now().strftime("%H")
+    return datetime.now(ZoneInfo('Europe/Moscow')).strftime("%H")
 
 
 
